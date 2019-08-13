@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-nz">
+<head>
+    <title>fill em up, fill em up, fill em up</title>
+    <style>
+         html {
+            background-color: #757575;
+        }
+        td {
+            border: 1px #000 solid;
+        }
+        thead td {
+            background-color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="progressbar.css">
+</head>
+<body>
+
+<div id="div1">
+
+</div>
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="jquery.progressbar.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#div1").progressBar({
+                imageUrl : 'images/duck.png',
+                imageHeight : 290
+            }).SetPercentage(50);
+
+        });
+
+    </script>
+</body>
+</html>
