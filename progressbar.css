@@ -4,29 +4,32 @@
     height: 250px;
     display: inline-block;
 }
+
 .gauge img {
     position: absolute;
 }
+
 .progress-bar {
     position: relative;
-    /* height: 290px; */
-    /* background-color: blue; */
 }
+
 .pb-background {
     position: absolute;
     top: 0;
 }
+
 .background-image {
-    opacity: .3;
+    /*opacity: .3;*/
 }
-.pb-progress{
-    height: 200px;
+
+.pb-progress {
+    /*height: 200px;*/
     overflow: hidden;
     position: relative;
-    /* background-color: red; */
-    top: 90px;
+    /*top: 90px;*/
 }
-.progress-image{
+
+.progress-image {
     position: absolute;
     bottom: 0;
 }
