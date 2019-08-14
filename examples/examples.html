@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-nz">
+
+<head>
+    <title>fill em up, fill em up, fill em up</title>
+    <style>
+        html {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #e6e6e6;
+        }
+        
+        td {
+            border: 1px #cacaca solid;
+        }
+        
+        thead td {
+            background-color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../src/progressbar.css">
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <div id="divDuck1">
+
+                </div>
+            </td>
+            <td>
+                Example 1.<br/>
+                <p>A single image, when used on the background it has opacity applied to be only partially visible.</p>
+                <pre>
+var duckbar1 = $("#divDuck1").progressBar({
+    imageUrl: 'images/duck.png',
+    imageHeight: 290,
+    imageWidth: 254
+});
+
+// to update percentage value to 15%
+duckbar1.SetPercentage(15);
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: #2b2b2b">
+                <div id="divDuck2">
+
+                </div>
+            </td>
+            <td>
+                Example 2.<br/>
+                <p>Same as above, but dark background.</p>
+                <pre>
+var duckbar2 = $("#divDuck2").progressBar({
+    imageUrl: 'images/duck.png',
+    imageHeight: 290,
+    imageWidth: 254
+});
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="divDuck3">
+
+                </div>
+            </td>
+            <td>
+                Example 3.<br/>
+                <p>Having no background image (or making it totally transparent)</p>
+                <pre>
+var duckbar3 = $("#divDuck3").progressBar({
+    imageUrl: 'images/duck.png',
+    imageHeight: 290,
+    imageWidth: 254,
+    backgroundOpacity: 0
+});
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="divBucket">
+
+                </div>
+            </td>
+            <td>
+                Example 4.<br/>
+                <p>
+                    Two different images; a 'full' and an 'empty', the background (or empty) image having no transparency
+                </p>
+                <pre>
+var bucketbar = $("#divBucket").progressBar({
+    imageUrl: 'images/BucketFull.png',
+    backgroundImageUrl: 'images/BucketEmpty.png',
+    imageHeight: 146,
+    imageWidth: 176,
+    backgroundOpacity: 1
+});
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="divPie">
+
+                </div>
+            </td>
+            <td>
+                Example 5.<br/>
+                <p>NZ loves pies. I also love pies.</p>
+                <pre>
+var piesBar = $("#divPie").progressBar({
+    imageUrl: 'images/nz-pies.png',
+    backgroundImageUrl: 'images/nz-empty.png',
+    imageHeight: 342,
+    imageWidth: 233,
+    backgroundOpacity: 1
+});
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../src/jquery.progressbar.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var duckbar1 = $("#divDuck1").progressBar({
+                imageUrl: 'images/duck.png',
+                imageHeight: 290,
+                imageWidth: 254
+            });
+            SimulateProgress(duckbar1, 0);
+
+            var duckbar2 = $("#divDuck2").progressBar({
+                imageUrl: 'images/duck.png',
+                imageHeight: 290,
+                imageWidth: 254
+            });
+            SimulateProgress(duckbar2, 0);
+
+            var duckbar3 = $("#divDuck3").progressBar({
+                imageUrl: 'images/duck.png',
+                imageHeight: 290,
+                imageWidth: 254,
+                backgroundOpacity: 0
+            });
+            SimulateProgress(duckbar3, 0);
+
+            var bucketbar = $("#divBucket").progressBar({
+                imageUrl: 'images/BucketFull.png',
+                backgroundImageUrl: 'images/BucketEmpty.png',
+                imageHeight: 146,
+                imageWidth: 176,
+                backgroundOpacity: 1
+            });
+            SimulateProgress(bucketbar, 0);
+
+            var piesBar = $("#divPie").progressBar({
+                imageUrl: 'images/nz-pies.png',
+                backgroundImageUrl: 'images/nz-empty.png',
+                imageHeight: 342,
+                imageWidth: 233,
+                backgroundOpacity: 1
+            });
+            SimulateProgress(piesBar, 0);
+        });
+
+        function SimulateProgress(progressBar, currentValue) {
+            var increase = getRandomInt(0, 3);
+            var newValue = currentValue + increase;
+            if (newValue > 100) newValue = 100;
+            if (currentValue == 100) newValue = 0;
+            progressBar.SetPercentage(newValue);
+            setTimeout(function() {
+                SimulateProgress(progressBar, newValue);
+            }, 80);
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+
+</html>
