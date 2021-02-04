@@ -32,4 +32,4 @@ var duckbar1 = $("#divDuck1").progressBar({
 duckbar1.SetPercentage(15);
 ```
 
-Some examples here http://htmlpreview.github.io/?https://github.com/kelvinperrie/ProgressBar/blob/master/examples/examples.html
+Some examples here https://progressbars.netlify.app/examples/examples.html
